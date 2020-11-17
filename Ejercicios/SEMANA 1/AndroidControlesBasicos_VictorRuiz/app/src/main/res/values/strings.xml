@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AndroidControlesBasicos_VictorRuiz</string>
+    <string name="button_off">off</string>
+    <string name="button_on">on</string>
+    <string name="click">click</string>
+    <string name="aceptar">aceptar</string>
+    <string name="cancelar">cancelar</string>
+    <string name="op1">opcion1</string>
+    <string name="op2">opcion2</string>
+    <string name="marcar">marcame</string>
+</resources>

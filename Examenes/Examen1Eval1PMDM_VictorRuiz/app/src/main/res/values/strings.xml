@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Examen1Eval1_VictorRuiz</string>
+    <string name="elefante">Elefante</string>
+    <string name="caballo">Caballo</string>
+    <string name="gato">Gato</string>
+    <string name="leon">Leon</string>
+    <string name="pajaro">Pajaro</string>
+    <string name="Perro">Perro</string>
+    <string name="bajo">Volumen bajo</string>
+    <string name="medio">Volumen medio</string>
+    <string name="alto">Volumen alto</string>
+
+
+
+</resources>
