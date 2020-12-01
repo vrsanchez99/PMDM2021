@@ -12,14 +12,17 @@ import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     private GridLayout tableroEnemigo;
     private GridLayout tableroJugador;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private MediaPlayer mediaPlayer, sonidoError, sonidoAcierto;
     private AudioManager audioManager;
 
+    private ListView listado;
+    private ArrayAdapter<String> adaptador;
 
 
     private char fallo = 'A';
@@ -70,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sonidoError = MediaPlayer.create(this, R.raw.fallo);
 
 
+
+
+
         btnCol = (Button) findViewById(R.id.btnColumna);
         btnFila = (Button) findViewById(R.id.btnFila);
 
@@ -103,6 +111,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+
+    public void openDialog(String[] rows){
+        AlertDialog.Builder alertDialog = new
+                AlertDialog.Builder(this);
+        View rowList = getLayoutInflater().inflate(R.layout.activity_listado_posiciones, null);
+        listado = rowList.findViewById(R.id.listView);
+        adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, rows);
+        listado.setAdapter(adaptador);
+        listado.setOnItemClickListener(this);
+        adaptador.notifyDataSetChanged();
+        alertDialog.setView(rowList);
+        AlertDialog dialog = alertDialog.create();
+        dialog.show();
+    }
 
     /**
      * @param gridLayout
@@ -285,8 +307,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Selecciona la columna del tablero enemigo");
-        builder.setItems(columnas, (dialog, pos) -> {
-            switch (columnas[pos]) {
+        builder.setItems(filas, (dialog, pos) -> {
+            switch (filas[pos]) {
 
                 case "A":
                     posicionFila = 0;
@@ -325,8 +347,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Selecciona la fila del tablero enemigo");
-        builder.setItems(filas, (dialog, pos) -> {
-            switch (filas[pos]) {
+        builder.setItems(columnas, (dialog, pos) -> {
+            switch (columnas[pos]) {
 
                 case "1":
                     posicionColumna = 0;
@@ -370,11 +392,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.btnColumna:
-                seleccionColumna();
+                //seleccionColumna();
+                openDialog(columnas);
                 break;
 
             case R.id.btnFila:
-                seleccionFila();
+                //seleccionFila();
+                openDialog(filas);
                 break;
 
 
@@ -387,7 +411,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         while (!fin) {
 
-            boolean turnoJugador = false;
+            boolean turnoJugador = true;
             int fila = -1, col = -1;
 
             while (turnoJugador == true) {
@@ -479,6 +503,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.LENGTH_LONG)
                     .show();
         }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        
+
 
     }
 }
