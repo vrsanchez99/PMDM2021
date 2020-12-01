@@ -2,6 +2,9 @@ package com.example.listview_dinamico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
             "pepa : 876234567",
     };
 
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +55,24 @@ public class MainActivity extends AppCompatActivity {
                                            int position, long id) {
                 // TODO Auto-generated method stub
 
-                listArrayList.remove(position);
+                final AlertDialog show = new AlertDialog.Builder(context)
+                        .setTitle("titulo")
+                        .setMessage("Borrar elemento?")
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
-                arrayadapter.notifyDataSetChanged();
+                            public void onClick(DialogInterface dialog, int whichButton) {
 
-                Toast.makeText(MainActivity.this, "Elemento borrado", Toast.LENGTH_LONG).show();
+                                listArrayList.remove(position);
+
+                                arrayadapter.notifyDataSetChanged();
+
+                                Toast.makeText(MainActivity.this, "Elemento borrado", Toast.LENGTH_LONG).show();
+
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null).show();
+
 
                 return true;
             }
