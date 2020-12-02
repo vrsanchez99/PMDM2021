@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_baseline_camera_alt_24"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Espejo roto"
+        app:layout_constraintLeft_toLeftOf="@+id/imageViewFoto"
+        app:layout_constraintRight_toRightOf="@+id/imageViewFoto"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewFoto" />
+
+    <ImageView
+        android:id="@+id/imageViewPresupuesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
+        android:src="@drawable/ic_baseline_assignment_24"
+
+        app:layout_constraintRight_toLeftOf="@+id/textViewPresupuesto"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textViewTitulo"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/textViewPresupuesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="0dp"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/imageViewPresupuesto"
+        app:layout_constraintRight_toRightOf="@+id/textViewTitulo"
+        app:layout_constraintTop_toTopOf="@+id/imageViewPresupuesto"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewPresupuesto"
+        android:layout_marginBottom="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
