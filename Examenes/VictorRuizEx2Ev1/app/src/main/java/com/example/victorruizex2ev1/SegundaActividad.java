@@ -2,6 +2,7 @@ package com.example.victorruizex2ev1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -22,14 +23,14 @@ public class SegundaActividad extends AppCompatActivity implements View.OnClickL
         btnVolver = (Button) findViewById(R.id.button);
         textDesc = (TextView) findViewById(R.id.textDescripcion);
 
-        Bundle recibir = getIntent().getExtras();
+      Intent intent = getIntent();
 
-        String nombre = recibir.getString("NOMBRE");
-        String descripción = recibir.getString("DESCRIPCION");
+        String nombre = intent.getStringExtra("NOMBRE");
+        String descripción = intent.getStringExtra("DESCRIPCION");
 
         Toast.makeText(SegundaActividad.this, descripción, Toast.LENGTH_LONG).show();
 
-        // textDesc.setText(descripción+"");
+       // textDesc.setText(descripción+"");
 
         btnVolver.setOnClickListener(this);
 

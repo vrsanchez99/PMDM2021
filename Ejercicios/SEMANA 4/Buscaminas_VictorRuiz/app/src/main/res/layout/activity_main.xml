@@ -24,11 +24,26 @@
         android:id="@+id/gridTablero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:horizontalSpacing="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+
         android:background="@color/grey"
+        android:horizontalSpacing="5dp"
         android:padding="10sp"
         android:verticalSpacing="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="56dp"
+        android:text="PERDISTE!"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
