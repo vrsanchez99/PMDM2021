@@ -280,8 +280,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v instanceof ImageButton) {
 
             ImageButton aux = (ImageButton) v;
-
-
             String a = aux.getTag().toString();
 
             int fila = Character.getNumericValue(a.charAt(0));
